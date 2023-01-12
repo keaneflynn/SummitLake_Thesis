@@ -1,0 +1,8 @@
+date,trip_number,site_id,latitude,longitude,rct_depth_cm,max_pool_depth_cm,notes,
+6/18/2021,0,MG1,41.54444,-119.03092,8.8,25.4,5m US of logger, near plastic crate
+6/18/2021,0,MG2,41.54489,-119.01041,10,21.1,same pool as logger, max depth @ USGS gauge
+6/18/2021,0,MG3,41.53177,-118.99426,8.7,30.5,5m DS of logger, juv LCT present
+6/18/2021,0,MG4,41.53231235,-118.98891604,8.6,14.4,same as logger site, 7cm LCT present
+6/18/2021,0,MG5,41.51708,-118.95757,8.6,26.7,20m DS of river ford,
+6/18/2021,0,SC1,41.52543,-118.98546,8.4,24.9,max depth under barbed wire,
+6/18/2021,0,SC2,41.50257,-118.97894,8.6,18.8,"same site as logger, it's just a deeper riffle; high gradient",

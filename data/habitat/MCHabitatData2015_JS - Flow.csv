@@ -1,0 +1,186 @@
+Flow & Stream Transects,,,,,,,,,,,,,
+Date,Reach #,SO,Channel Unit and Type ,Total Width (m),Cross section width,Cross Section Depth ,Velocity,Flow,∑Flow (cms)=,Flow meter,,QAQC,Comments:
+6/16/2015,MC1-116,4,FNRN2,1.2,0.24,0.12,0.003,0.0000864,0.0717648,SLPT,,,
+6/16/2015,MC1-116,4,FNRN2,1.2,0.24,0.17,0.18,0.007344,0.0717648,SLPT,,,
+6/16/2015,MC1-116,4,FNRN2,1.2,0.24,0.17,1.37,0.055896,0.0717648,SLPT,,,
+6/16/2015,MC1-116,4,FNRN2,1.2,0.24,0.14,0.21,0.007056,0.0717648,SLPT,,,
+6/16/2015,MC1-116,4,FNRN2,1.2,0.24,0.09,0.064,0.0013824,0.0717648,SLPT,,,
+6/17/2015,MC1-206,40,FTRF6,0.94,0.188,0.11,0.03,0.0006204,0.0368668,SLPT,,,
+6/17/2015,MC1-206,40,FTRF6,0.94,0.188,0.14,0.43,0.0113176,0.0368668,SLPT,,,
+6/17/2015,MC1-206,40,FTRF6,0.94,0.188,0.18,0.42,0.0142128,0.0368668,SLPT,,,
+6/17/2015,MC1-206,40,FTRF6,0.94,0.188,0.15,0.38,0.010716,0.0368668,SLPT,,,
+6/17/2015,MC1-206,40,FTRF6,0.94,0.188,0.06,0,0,0.0368668,SLPT,,,
+6/18/2015,MC2-257,68,FTRF6,1.5,0.3,0.03,0.08,0.00072,0.06636,SLPT,,,
+6/18/2015,MC2-257,68,FTRF6,1.5,0.3,0.28,0.19,0.01596,0.06636,SLPT,,,
+6/18/2015,MC2-257,68,FTRF6,1.5,0.3,0.03,0.38,0.00342,0.06636,SLPT,,,
+6/18/2015,MC2-257,68,FTRF6,1.5,0.3,0.35,0.34,0.0357,0.06636,SLPT,,,
+6/18/2015,MC2-257,68,FTRF6,1.5,0.3,0.32,0.11,0.01056,0.06636,SLPT,,,
+6/19/2015,MC3-380,123,FTRF1,1.8,0.36,0,0,0,0.057924,SLPT,,,
+6/19/2015,MC3-380,123,FTRF1,1.8,0.36,0.05,0,0,0.057924,SLPT,,,
+6/19/2015,MC3-380,123,FTRF1,1.8,0.36,0.09,0.18,0.005832,0.057924,SLPT,,,
+6/19/2015,MC3-380,123,FTRF1,1.8,0.36,0.11,0.22,0.008712,0.057924,SLPT,,,
+6/19/2015,MC3-380,123,FTRF1,1.8,0.36,0.09,0.29,0.009396,0.057924,SLPT,,,
+6/19/2015,MC3-380,123,FTRF1,1.8,0.36,0.09,0.2,0.00648,0.057924,SLPT,,,
+6/19/2015,MC3-380,123,FTRF1,1.8,0.36,0.09,0.22,0.007128,0.057924,SLPT,,,
+6/19/2015,MC3-380,123,FTRF1,1.8,0.36,0.14,0.28,0.014112,0.057924,SLPT,,,
+6/19/2015,MC3-380,123,FTRF1,1.8,0.36,0.06,0.29,0.006264,0.057924,SLPT,,,
+6/19/2015,MC3-380,123,FTRF1,1.8,0.36,0,0,0,0.057924,SLPT,,,
+6/24/2015,MC5-501,223,FTRF7,1.19,0.119,0.003,0,0,0.012257,SLPT,,,"In cells 2 and 9, rod lowered as much as possible to read at 0.2 ft mark (so any reading at a depth below 0.2 ft (.06 m) will not be at 60% of the total depth)."
+6/24/2015,MC5-501,223,FTRF7,1.19,0.119,0.05,0.03,0.0001785,0.012257,SLPT,,,"In cells 2 and 9, rod lowered as much as possible to read at 0.2 ft mark (so any reading at a depth below 0.2 ft (.06 m) will not be at 60% of the total depth)."
+6/24/2015,MC5-501,223,FTRF7,1.19,0.119,0.06,0.13,0.0009282,0.012257,SLPT,,,"In cells 2 and 9, rod lowered as much as possible to read at 0.2 ft mark (so any reading at a depth below 0.2 ft (.06 m) will not be at 60% of the total depth)."
+6/24/2015,MC5-501,223,FTRF7,1.19,0.119,0.08,0.25,0.00238,0.012257,SLPT,,,"In cells 2 and 9, rod lowered as much as possible to read at 0.2 ft mark (so any reading at a depth below 0.2 ft (.06 m) will not be at 60% of the total depth)."
+6/24/2015,MC5-501,223,FTRF7,1.19,0.119,0.08,0.32,0.0030464,0.012257,SLPT,,,"In cells 2 and 9, rod lowered as much as possible to read at 0.2 ft mark (so any reading at a depth below 0.2 ft (.06 m) will not be at 60% of the total depth)."
+6/24/2015,MC5-501,223,FTRF7,1.19,0.119,0.08,0.3,0.002856,0.012257,SLPT,,,"In cells 2 and 9, rod lowered as much as possible to read at 0.2 ft mark (so any reading at a depth below 0.2 ft (.06 m) will not be at 60% of the total depth)."
+6/24/2015,MC5-501,223,FTRF7,1.19,0.119,0.06,0.2,0.001428,0.012257,SLPT,,,"In cells 2 and 9, rod lowered as much as possible to read at 0.2 ft mark (so any reading at a depth below 0.2 ft (.06 m) will not be at 60% of the total depth)."
+6/24/2015,MC5-501,223,FTRF7,1.19,0.119,0.06,0.16,0.0011424,0.012257,SLPT,,,"In cells 2 and 9, rod lowered as much as possible to read at 0.2 ft mark (so any reading at a depth below 0.2 ft (.06 m) will not be at 60% of the total depth)."
+6/24/2015,MC5-501,223,FTRF7,1.19,0.119,0.05,0.05,0.0002975,0.012257,SLPT,,,"In cells 2 and 9, rod lowered as much as possible to read at 0.2 ft mark (so any reading at a depth below 0.2 ft (.06 m) will not be at 60% of the total depth)."
+6/24/2015,MC5-501,223,FTRF7,1.19,0.119,0.003,0,0,0.012257,SLPT,,,"In cells 2 and 9, rod lowered as much as possible to read at 0.2 ft mark (so any reading at a depth below 0.2 ft (.06 m) will not be at 60% of the total depth)."
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0,0,0,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.003,0,0,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.02,0,0,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.03,0.009,0.00002934,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.04,0.04,0.0001738666667,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.04,0.07,0.0003042666667,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.05,0.14,0.0007606666667,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.05,0.12,0.000652,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.06,0.07,0.0004564,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.06,0.06,0.0003912,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.06,0.07,0.0004564,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.06,0.07,0.0004564,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.06,0.05,0.000326,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.05,0.009,0.0000489,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/25/2015,MC5-555,257,FTRN9,1.63,0.1086666667,0.003,0,0,0.00405544,SLPT,,,cms is not that close to the value calculated strait from cfs. Not sure what to do about that.
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/26/2015,SCC1-069,5005,FTRF3,,,,,,,,,,
+6/30/2015,SCC4-15-7,5123,FTRP2,1.2,0.15,0,0,0,0.0135,UNR,,,"For any depth below 0.08m, velocity was measured at 0.08 mark on wading rod since it couldgo no lower. Tiny eddy within transect that may have affected cell #6 velocity."
+6/30/2015,SCC4-15-7,5123,FTRP2,1.2,0.15,0.04,0.24,0.00144,0.0135,UNR,,,"For any depth below 0.08m, velocity was measured at 0.08 mark on wading rod since it couldgo no lower. Tiny eddy within transect that may have affected cell #6 velocity."
+6/30/2015,SCC4-15-7,5123,FTRP2,1.2,0.15,0.08,0.22,0.00264,0.0135,UNR,,,"For any depth below 0.08m, velocity was measured at 0.08 mark on wading rod since it couldgo no lower. Tiny eddy within transect that may have affected cell #6 velocity."
+6/30/2015,SCC4-15-7,5123,FTRP2,1.2,0.15,0.08,0.3,0.0036,0.0135,UNR,,,"For any depth below 0.08m, velocity was measured at 0.08 mark on wading rod since it couldgo no lower. Tiny eddy within transect that may have affected cell #6 velocity."
+6/30/2015,SCC4-15-7,5123,FTRP2,1.2,0.15,0.1,0.32,0.0048,0.0135,UNR,,,"For any depth below 0.08m, velocity was measured at 0.08 mark on wading rod since it couldgo no lower. Tiny eddy within transect that may have affected cell #6 velocity."
+6/30/2015,SCC4-15-7,5123,FTRP2,1.2,0.15,0.07,0.02,0.00021,0.0135,UNR,,,"For any depth below 0.08m, velocity was measured at 0.08 mark on wading rod since it couldgo no lower. Tiny eddy within transect that may have affected cell #6 velocity."
+6/30/2015,SCC4-15-7,5123,FTRP2,1.2,0.15,0.06,0.09,0.00081,0.0135,UNR,,,"For any depth below 0.08m, velocity was measured at 0.08 mark on wading rod since it couldgo no lower. Tiny eddy within transect that may have affected cell #6 velocity."
+6/30/2015,SCC4-15-7,5123,FTRP2,1.2,0.15,0,0,0,0.0135,UNR,,,"For any depth below 0.08m, velocity was measured at 0.08 mark on wading rod since it couldgo no lower. Tiny eddy within transect that may have affected cell #6 velocity."
+6/30/2015,SCC5-15-8,5157,FTRP3,1.07,0.107,0,0,0,0.0117807,SLPT,,,
+6/30/2015,SCC5-15-8,5157,FTRP3,1.07,0.107,0.03,0.12,0.0003852,0.0117807,SLPT,,,
+6/30/2015,SCC5-15-8,5157,FTRP3,1.07,0.107,0.05,0.05,0.0002675,0.0117807,SLPT,,,
+6/30/2015,SCC5-15-8,5157,FTRP3,1.07,0.107,0.05,0.12,0.000642,0.0117807,SLPT,,,
+6/30/2015,SCC5-15-8,5157,FTRP3,1.07,0.107,0.08,0.56,0.0047936,0.0117807,SLPT,,,Negative value due to rocks.
+6/30/2015,SCC5-15-8,5157,FTRP3,1.07,0.107,0.09,0.27,0.0026001,0.0117807,SLPT,,,
+6/30/2015,SCC5-15-8,5157,FTRP3,1.07,0.107,0.08,0,0,0.0117807,SLPT,,,
+6/30/2015,SCC5-15-8,5157,FTRP3,1.07,0.107,0.05,0.05,0.0002675,0.0117807,SLPT,,,
+6/30/2015,SCC5-15-8,5157,FTRP3,1.07,0.107,0.06,0.3,0.001926,0.0117807,SLPT,,,
+6/30/2015,SCC5-15-8,5157,FTRP3,1.07,0.107,0.06,0.14,0.0008988,0.0117807,SLPT,,,
+7/1/2015,MC2-326,106,FTRF10,1.14,0.114,0.05,0,0,0.0178866,SLPT,,,
+7/1/2015,MC2-326,106,FTRF10,1.14,0.114,0.09,0.26,0.0026676,0.0178866,SLPT,,,
+7/1/2015,MC2-326,106,FTRF10,1.14,0.114,0.12,0.22,0.0030096,0.0178866,SLPT,,,
+7/1/2015,MC2-326,106,FTRF10,1.14,0.114,0.14,0.38,0.0060648,0.0178866,SLPT,,,
+7/1/2015,MC2-326,106,FTRF10,1.14,0.114,0.14,0.34,0.0054264,0.0178866,SLPT,,,
+7/1/2015,MC2-326,106,FTRF10,1.14,0.114,0.15,0.03,0.000513,0.0178866,SLPT,,,
+7/1/2015,MC2-326,106,FTRF10,1.14,0.114,0.12,0.01,0.0001368,0.0178866,SLPT,,,
+7/1/2015,MC2-326,106,FTRF10,1.14,0.114,0.11,0.003,0.00003762,0.0178866,SLPT,,,
+7/1/2015,MC2-326,106,FTRF10,1.14,0.114,0.09,0.003,0.00003078,0.0178866,SLPT,,,
+7/1/2015,MC2-326,106,FTRF10,1.14,0.114,0.05,0,0,0.0178866,SLPT,,,
+7/7/2015,SCC3-486,5099,FTRF6,0.9,0.09,0,0,0,0.010125,UNR,,,
+7/7/2015,SCC3-486,5099,FTRF6,0.9,0.09,0.05,0,0,0.010125,UNR,,,
+7/7/2015,SCC3-486,5099,FTRF6,0.9,0.09,0.06,0.1,0.00054,0.010125,UNR,,,
+7/7/2015,SCC3-486,5099,FTRF6,0.9,0.09,0.06,0.08,0.000432,0.010125,UNR,,,
+7/7/2015,SCC3-486,5099,FTRF6,0.9,0.09,0.07,0.11,0.000693,0.010125,UNR,,,
+7/7/2015,SCC3-486,5099,FTRF6,0.9,0.09,0.1,0.21,0.00189,0.010125,UNR,,,
+7/7/2015,SCC3-486,5099,FTRF6,0.9,0.09,0.11,0.33,0.003267,0.010125,UNR,,,
+7/7/2015,SCC3-486,5099,FTRF6,0.9,0.09,0.11,0.13,0.001287,0.010125,UNR,,,
+7/7/2015,SCC3-486,5099,FTRF6,0.9,0.09,0.09,0.21,0.001701,0.010125,UNR,,,
+7/7/2015,SCC3-486,5099,FTRF6,0.9,0.09,0.07,0.05,0.000315,0.010125,UNR,,,
+7/7/2015,SCC2-15-5,5034,FTRP2,1.02,0.102,0.03,0,0,0.0047634,SLPT,,,Too shallow. Depth of 0.15 in - velocity measured at 0.2 in on flow rod handle.
+7/7/2015,SCC2-15-5,5034,FTRP2,1.02,0.102,0.05,0.09,0.000459,0.0047634,SLPT,,,Depth of 0.15 in - velocity measured at 0.2 in on flow rod handle.
+7/7/2015,SCC2-15-5,5034,FTRP2,1.02,0.102,0.05,0.01,0.000051,0.0047634,SLPT,,,Depth of 0.15 in - velocity measured at 0.2 in on flow rod handle.
+7/7/2015,SCC2-15-5,5034,FTRP2,1.02,0.102,0.06,0,0,0.0047634,SLPT,,,Behind rock. Depth of 0.15 in - velocity measured at 0.2 in on flow rod handle.
+7/7/2015,SCC2-15-5,5034,FTRP2,1.02,0.102,0.08,0.1,0.000816,0.0047634,SLPT,,,Depth of 0.15 in - velocity measured at 0.2 in on flow rod handle.
+7/7/2015,SCC2-15-5,5034,FTRP2,1.02,0.102,0.11,0.15,0.001683,0.0047634,SLPT,,,Depth of 0.15 in - velocity measured at 0.2 in on flow rod handle.
+7/7/2015,SCC2-15-5,5034,FTRP2,1.02,0.102,0.11,0.08,0.0008976,0.0047634,SLPT,,,Depth of 0.15 in - velocity measured at 0.2 in on flow rod handle.
+7/7/2015,SCC2-15-5,5034,FTRP2,1.02,0.102,0.06,0.09,0.0005508,0.0047634,SLPT,,,Depth of 0.15 in - velocity measured at 0.2 in on flow rod handle.
+7/7/2015,SCC2-15-5,5034,FTRP2,1.02,0.102,0.06,0.05,0.000306,0.0047634,SLPT,,,Depth of 0.15 in - velocity measured at 0.2 in on flow rod handle.
+7/7/2015,SCC2-15-5,5034,FTRP2,1.02,0.102,0.05,0,0,0.0047634,SLPT,,,Behind rock. Depth of 0.15 in - velocity measured at 0.2 in on flow rod handle.
+7/9/2015,MC7-817,334,FTRF2,0.9,0.09,0,0,0,0.00216,UNR,,,"Below 0.06 m depth, can't take flow at 60% depth. Lots of vegetation in wetted width at margins - used the main channel to do flow wetted width and measurements."
+7/9/2015,MC7-817,334,FTRF2,0.9,0.09,0.04,0.09,0.000324,0.00216,UNR,,,"Below 0.06 m depth, can't take flow at 60% depth. Lots of vegetation in wetted width at margins - used the main channel to do flow wetted width and measurements."
+7/9/2015,MC7-817,334,FTRF2,0.9,0.09,0.02,0.06,0.000108,0.00216,UNR,,,"Below 0.06 m depth, can't take flow at 60% depth. Lots of vegetation in wetted width at margins - used the main channel to do flow wetted width and measurements."
+7/9/2015,MC7-817,334,FTRF2,0.9,0.09,0.04,0.04,0.000144,0.00216,UNR,,,"Below 0.06 m depth, can't take flow at 60% depth. Lots of vegetation in wetted width at margins - used the main channel to do flow wetted width and measurements."
+7/9/2015,MC7-817,334,FTRF2,0.9,0.09,0.04,0.05,0.00018,0.00216,UNR,,,"Below 0.06 m depth, can't take flow at 60% depth. Lots of vegetation in wetted width at margins - used the main channel to do flow wetted width and measurements."
+7/9/2015,MC7-817,334,FTRF2,0.9,0.09,0.04,0.15,0.00054,0.00216,UNR,,,"Below 0.06 m depth, can't take flow at 60% depth. Lots of vegetation in wetted width at margins - used the main channel to do flow wetted width and measurements."
+7/9/2015,MC7-817,334,FTRF2,0.9,0.09,0.04,0.16,0.000576,0.00216,UNR,,,"Below 0.06 m depth, can't take flow at 60% depth. Lots of vegetation in wetted width at margins - used the main channel to do flow wetted width and measurements."
+7/9/2015,MC7-817,334,FTRF2,0.9,0.09,0.04,0.08,0.000288,0.00216,UNR,,,"Below 0.06 m depth, can't take flow at 60% depth. Lots of vegetation in wetted width at margins - used the main channel to do flow wetted width and measurements."
+7/9/2015,MC7-817,334,FTRF2,0.9,0.09,0.02,0,0,0.00216,UNR,,,"Below 0.06 m depth, can't take flow at 60% depth. Lots of vegetation in wetted width at margins - used the main channel to do flow wetted width and measurements."
+7/9/2015,MC7-817,334,FTRF2,0.9,0.09,0,0,0,0.00216,UNR,,,"Below 0.06 m depth, can't take flow at 60% depth. Lots of vegetation in wetted width at margins - used the main channel to do flow wetted width and measurements."
+7/1/2015,MC3-458,167,FTRP11,0.75,0.15,0.05,0.27,0.002025,0.011175,UNR,,,"On rock. For all depths below 0.08, velocity was measured at 0.08 sensor depth due to inability to lower more. Last measurement taken more toward middle of channel due to rock affecting flow."
+7/1/2015,MC3-458,167,FTRP11,0.75,0.15,0.07,0.52,0.00546,0.011175,UNR,,,"For all depths below 0.08, velocity was measured at 0.08 sensor depth due to inability to lower more. Last measurement taken more toward middle of channel due to rock affecting flow."
+7/1/2015,MC3-458,167,FTRP11,0.75,0.15,0.1,0.21,0.00315,0.011175,UNR,,,"For all depths below 0.08, velocity was measured at 0.08 sensor depth due to inability to lower more. Last measurement taken more toward middle of channel due to rock affecting flow."
+7/1/2015,MC3-458,167,FTRP11,0.75,0.15,0.04,0,0,0.011175,UNR,,,"For all depths below 0.08, velocity was measured at 0.08 sensor depth due to inability to lower more. Last measurement taken more toward middle of channel due to rock affecting flow."
+7/1/2015,MC3-458,167,FTRP11,0.75,0.15,0.04,0.09,0.00054,0.011175,UNR,,,"For all depths below 0.08, velocity was measured at 0.08 sensor depth due to inability to lower more. Last measurement taken more toward middle of channel due to rock affecting flow."
+7/15/2015,MC6-604,272,FNRN1,0.71,0.142,0.06,0.05,0.000426,0.00067876,SLPT,,,Water flow very low. Be skeptical of measurement.
+7/15/2015,MC6-604,272,FNRN1,0.71,0.142,0.06,0,0,0.00067876,SLPT,,,Water flow very low. Be skeptical of measurement.
+7/15/2015,MC6-604,272,FNRN1,0.71,0.142,0.06,0.003,0.00002556,0.00067876,SLPT,,,Water flow very low. Be skeptical of measurement.
+7/15/2015,MC6-604,272,FNRN1,0.71,0.142,0.08,0.02,0.0002272,0.00067876,SLPT,,,Water flow very low. Be skeptical of measurement.
+7/15/2015,MC6-604,272,FNRN1,0.71,0.142,0.05,0,0,0.00067876,SLPT,,,Water flow very low. Be skeptical of measurement.
+7/15/2015,MC7-733,309,FTRF6,0.85,0.085,0.04,0.05,0.00017,0.0017765,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.85,0.085,0.04,0.01,0.000034,0.0017765,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.85,0.085,0.04,0.11,0.000374,0.0017765,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.85,0.085,0.04,0.07,0.000238,0.0017765,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.85,0.085,0.03,0.05,0.0001275,0.0017765,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.85,0.085,0.04,0.03,0.000102,0.0017765,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.85,0.085,0.04,0.13,0.000442,0.0017765,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.85,0.085,0.03,0.1,0.000255,0.0017765,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.85,0.085,0.04,0.01,0.000034,0.0017765,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.85,0.085,0,0,0,0.0017765,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.92,0.092,0,0,0,0.0014168,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.92,0.092,0.03,0,0,0.0014168,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.92,0.092,0.04,0.03,0.0001104,0.0014168,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.92,0.092,0.04,0.07,0.0002576,0.0014168,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.92,0.092,0.02,0,0,0.0014168,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.92,0.092,0.04,0,0,0.0014168,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.92,0.092,0.04,0.13,0.0004784,0.0014168,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.92,0.092,0.04,0.12,0.0004416,0.0014168,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.92,0.092,0.04,0.03,0.0001104,0.0014168,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/15/2015,MC7-733,309,FTRF6,0.92,0.092,0.02,0.01,0.0000184,0.0014168,UNR,,,Took a second measurement just downstream because we got so many zeros at the first location.
+7/2/2015,MC4-15-1,190,FTRF6,0.95,0.095,0.08,0.07,0.000532,0.0082365,UNR,,,
+7/2/2015,MC4-15-1,190,FTRF6,0.95,0.095,0.08,0.2,0.00152,0.0082365,UNR,,,
+7/2/2015,MC4-15-1,190,FTRF6,0.95,0.095,0.04,0.13,0.000494,0.0082365,UNR,,,
+7/2/2015,MC4-15-1,190,FTRF6,0.95,0.095,0.08,0.32,0.002432,0.0082365,UNR,,,
+7/2/2015,MC4-15-1,190,FTRF6,0.95,0.095,0.08,0.18,0.001368,0.0082365,UNR,,,
+7/2/2015,MC4-15-1,190,FTRF6,0.95,0.095,0.08,0.12,0.000912,0.0082365,UNR,,,
+7/2/2015,MC4-15-1,190,FTRF6,0.95,0.095,0.08,0.08,0.000608,0.0082365,UNR,,,
+7/2/2015,MC4-15-1,190,FTRF6,0.95,0.095,0.04,0.03,0.000114,0.0082365,UNR,,,
+7/2/2015,MC4-15-1,190,FTRF6,0.95,0.095,0.03,0.09,0.0002565,0.0082365,UNR,,,
+7/2/2015,MC4-15-1,190,FTRF6,0.95,0.095,0.02,0,0,0.0082365,UNR,,,Too shallow for reading.
+7/16/2015,MC8-15-3,402,FTRF8,0.61,0.122,0,0,0,0.0025742,SLPT,,,
+7/16/2015,MC8-15-3,402,FTRF8,0.61,0.122,0.06,0.19,0.0013908,0.0025742,SLPT,,,
+7/16/2015,MC8-15-3,402,FTRF8,0.61,0.122,0.08,0.11,0.0010736,0.0025742,SLPT,,,
+7/16/2015,MC8-15-3,402,FTRF8,0.61,0.122,0.03,0.03,0.0001098,0.0025742,SLPT,,,
+7/16/2015,MC8-15-3,402,FTRF8,0.61,0.122,0,0,0,0.0025742,SLPT,,,
+7/28/2015,MC7-787,462,FTRP1,1.14,0.114,0,0,0,0.0111834,SLPT,,,Water very shallow. Hard to find any place deep enough for flow meter.
+7/28/2015,MC7-787,462,FTRP1,1.14,0.114,0.02,0,0,0.0111834,SLPT,,,Water very shallow. Hard to find any place deep enough for flow meter.
+7/28/2015,MC7-787,462,FTRP1,1.14,0.114,0.03,0,0,0.0111834,SLPT,,,Water very shallow. Hard to find any place deep enough for flow meter.
+7/28/2015,MC7-787,462,FTRP1,1.14,0.114,0.03,0.29,0.0009918,0.0111834,SLPT,,,Water very shallow. Hard to find any place deep enough for flow meter.
+7/28/2015,MC7-787,462,FTRP1,1.14,0.114,0.05,0.48,0.002736,0.0111834,SLPT,,,Water very shallow. Hard to find any place deep enough for flow meter.
+7/28/2015,MC7-787,462,FTRP1,1.14,0.114,0.06,0.92,0.0062928,0.0111834,SLPT,,,Water very shallow. Hard to find any place deep enough for flow meter.
+7/28/2015,MC7-787,462,FTRP1,1.14,0.114,0.06,0.17,0.0011628,0.0111834,SLPT,,,Water very shallow. Hard to find any place deep enough for flow meter.
+7/28/2015,MC7-787,462,FTRP1,1.14,0.114,0.05,0,0,0.0111834,SLPT,,,Water very shallow. Hard to find any place deep enough for flow meter.
+7/28/2015,MC7-787,462,FTRP1,1.14,0.114,0.03,0,0,0.0111834,SLPT,,,Water very shallow. Hard to find any place deep enough for flow meter.
+7/28/2015,MC7-787,462,FTRP1,1.14,0.114,0.03,0,0,0.0111834,SLPT,,,Water very shallow. Hard to find any place deep enough for flow meter.
+7/22/2015,MC8-15-4,,,,,,,,,,,,Could not do flow not enough water to cover probe.
+7/22/2015,MC1-013,1012,FNRN12,0.51,0.102,0.08,0.01,0.00004719474432,0.004530695455,SLPT,,,
+7/22/2015,MC1-013,1012,FNRN12,0.51,0.102,0.11,0.09,0.0009250169887,0.004530695455,SLPT,,,
+7/22/2015,MC1-013,1012,FNRN12,0.51,0.102,0.12,0.20,0.002529638296,0.004530695455,SLPT,,,
+7/22/2015,MC1-013,1012,FNRN12,0.51,0.102,0.09,0.11,0.001019406477,0.004530695455,SLPT,,,
+7/22/2015,MC1-013,1012,FNRN12,0.51,0.102,0.03,0.00,0.000009438948864,0.004530695455,SLPT,,,
