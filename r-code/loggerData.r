@@ -3,7 +3,8 @@ library(lubridate)
 library(tidyr)
 library(ggplot2)
 library(stringr)
-setwd("~/code/SummitLake_Thesis/")
+#setwd("~/code/SummitLake_Thesis/") #setwd for Linux machine
+setwd("~/Downloads/SummitLake_Thesis/") #setwd for macbook
 
 ###Hobo logger Corrections###
 
@@ -233,3 +234,6 @@ minidot_do(dataset = "data/hydrology/minidot_sc1.txt", sitename = "Summer Camp C
              start_date="2022-05-12", end_date="2022-11-01")#5/12/2022-11/2/2022
 minidot_do(dataset = "data/hydrology/minidot_sc2.txt", sitename = "Summer Camp Creek Site 2: Dissolved Oxygen (mg/L)",
              start_date="2022-07-05", end_date="2022-11-15")#7/5/2022-11/16/2022
+
+
+###Concatenate into one big fuckin graph###
