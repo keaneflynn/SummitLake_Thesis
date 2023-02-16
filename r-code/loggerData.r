@@ -3,11 +3,13 @@ library(lubridate)
 library(tidyr)
 library(ggplot2)
 library(stringr)
-#setwd("~/code/SummitLake_Thesis/") #setwd for Linux machine
-setwd("~/Downloads/SummitLake_Thesis/") #setwd for macbook
+library(patchwork)
+
+setwd("~/code/SummitLake_Thesis/") #setwd for Linux machine
+#setwd("~/Downloads/SummitLake_Thesis/") #setwd for macbook
+
 
 ###Hobo logger Corrections###
-
 mg4 <- read.csv2("data/hydrology/hoboLogger_mg4.csv", sep=",") 
   mg4$Water.Level....ft. <- as.numeric(mg4$Water.Level....ft.) 
   mg4$Water.Level....ft. <- mg4$Water.Level....ft. + 0.4327 #0.5855
@@ -26,6 +28,7 @@ sc2 <- read.csv2("data/hydrology/hoboLogger_sc2.csv", sep=",")
   sc2$Water.Level....ft. <- sc2$Water.Level....ft. + 0.0819
 write.csv2(sc2, "data/hydrology/hoboLogger_sc2_corrected.csv")
  
+
 ##Global Variables###
 date_range <- c(as.Date("2022-05-12"), 
                 as.Date("2022-11-16"))
@@ -41,8 +44,10 @@ sample_dates <- data.frame(x=c(as.Date("2022-08-09"), as.Date("2022-08-16"), as.
                                   as.Date("2022-9-07"), as.Date("2022-10-04"), as.Date("2022-11-01")),
                            yend=18)
 
+
 ###Functions###  
-minidot_temp <- function(dataset, sitename, start_date, end_date) {
+minidot_temp <- function(dataset, sitename, start_date, end_date, 
+                         x_axis_lab, y_axis_lab, legend_lab) {
   data <- read.delim2(dataset, skip=7, header=T, 
                       sep=",")[-1,c(3,5,6)] %>% 
     rename(pacific_standard_time=Pacific.Standard.Time, 
@@ -76,17 +81,18 @@ minidot_temp <- function(dataset, sitename, start_date, end_date) {
                     col="#36454f") +
        geom_vline(data=month_dates, aes(xintercept=dates),
                   linetype="dotted") +
-       xlab("Date") +
-       ylab("Water Temperature (C)") +
+       xlab(x_axis_lab) +
+       ylab(y_axis_lab) +
        ylim(0,30) +
-       geom_hline(aes(yintercept=20, linetype="Bioenergetic Threshold \n(Dickerson & Vinyard 1999)"), 
+       geom_hline(aes(yintercept=20, linetype=legend_lab), #Bioenergetic Threshold \n(Dickerson & Vinyard 1999)
                   colour="red") +
        scale_linetype_manual(name="", values=2, 
                              guide=guide_legend(override.aes=list(color="red")))
   return(g)
 }
 
-minidot_do <- function(dataset, sitename, start_date, end_date) {
+minidot_do <- function(dataset, sitename, start_date, end_date, 
+                       x_axis_lab, y_axis_lab, legend_lab) {
   data <- read.delim2(dataset, skip=7, header=T, 
                       sep=",")[-1,c(3,5,6)] %>% 
     rename(pacific_standard_time=Pacific.Standard.Time, 
@@ -120,10 +126,10 @@ minidot_do <- function(dataset, sitename, start_date, end_date) {
                     col="#36454f") +
        geom_vline(data=month_dates, aes(xintercept=dates),
                   linetype="dotted") +
-       xlab("Date") +
-       ylab("Dissolved Oxygen (mg/L)") +
+       xlab(x_axis_lab) +
+       ylab(y_axis_lab) +
        ylim(3,13) +
-       geom_hline(aes(yintercept=5, linetype="DO Threshold \n(Doudoroff & Shumway 1970)"), 
+       geom_hline(aes(yintercept=5, linetype=legend_lab), #"DO Threshold \n(Doudoroff & Shumway 1970)" 
                   colour="red") +
        scale_linetype_manual(name="", values=2, 
                              guide=guide_legend(override.aes=list(color="red")))
@@ -183,57 +189,64 @@ hoboLogger <- function(dataset, sitename, start_date, end_date){
                   linetype="dotted")
   return(g)
 }
-###End Functions###
 
-hoboLogger(dataset="data/hydrology/hoboLogger_mg4_corrected.csv", sitename="Mahogany Creek Site 4: Water Level (cm)",
+
+###Run functions###
+a1 <- hoboLogger(dataset="data/hydrology/hoboLogger_mg4_corrected.csv", sitename="Mahogany Creek Site 4: Water Level (cm)",
            start_date="2022-05-12", end_date="2022-08-30")#5/12/2022-11/2/2022
-hoboLogger(dataset="data/hydrology/hoboLogger_mg5_corrected.csv", sitename="Mahogany Creek Site 5: Water Level (cm)",
+a2 <- hoboLogger(dataset="data/hydrology/hoboLogger_mg5_corrected.csv", sitename="Mahogany Creek Site 5: Water Level (cm)",
            start_date="2022-07-05", end_date="2022-11-15")#7/5/2022-11/15/2022
-hoboLogger(dataset="data/hydrology/hoboLogger_sc1_corrected.csv", sitename="Summer Camp Creek Site 1: Water Level (cm)",
+a3 <- hoboLogger(dataset="data/hydrology/hoboLogger_sc1_corrected.csv", sitename="Summer Camp Creek Site 1: Water Level (cm)",
            start_date="2022-05-12", end_date="2022-11-02")#5/12/2022-11/2/2022
-hoboLogger(dataset="data/hydrology/hoboLogger_sc2_corrected.csv", sitename="Summer Camp Creek Site 2: Water Level (cm)",
+a4 <- hoboLogger(dataset="data/hydrology/hoboLogger_sc2_corrected.csv", sitename="Summer Camp Creek Site 2: Water Level (cm)",
            start_date="2022-07-05", end_date="2022-11-16")#7/5/2022-11/16/202
 
-iButton_temp(dataset="data/airTemp/iButton_mg2_2022.csv", sitename="Mahogany Creek Site 2: Air Temperature (C)",
+b1 <- iButton_temp(dataset="data/airTemp/iButton_mg2_2022.csv", sitename="Mahogany Creek Site 2: Air Temperature (C)",
              start_date="2022-05-12", end_date="2022-11-01")#5/12/2022-11/1/2022
-iButton_temp(dataset="data/airTemp/iButton_mg3_2022.csv", sitename="Mahogany Creek Site 3: Air Temperature (C)",
+b2 <- iButton_temp(dataset="data/airTemp/iButton_mg3_2022.csv", sitename="Mahogany Creek Site 3: Air Temperature (C)",
              start_date="2022-05-12", end_date="2022-11-01")#5/12/2022-11/1/2022
-iButton_temp(dataset="data/airTemp/iButton_mg4_2022.csv", sitename="Mahogany Creek Site 4: Air Temperature (C)",
+b3 <- iButton_temp(dataset="data/airTemp/iButton_mg4_2022.csv", sitename="Mahogany Creek Site 4: Air Temperature (C)",
              start_date="2022-05-12", end_date="2022-09-07")#5/12/2022-9/7/2022
-iButton_temp(dataset="data/airTemp/iButton_mg5_2022.csv", sitename="Mahogany Creek Site 5: Air Temperature (C)",
+b4 <- iButton_temp(dataset="data/airTemp/iButton_mg5_2022.csv", sitename="Mahogany Creek Site 5: Air Temperature (C)",
              start_date="2022-07-05", end_date="2022-11-15")#7/5/2022-11/15/2022
-iButton_temp(dataset="data/airTemp/iButton_sc2_2022.csv", sitename="Summer Camp Creek Site 2: Air Temperature (C)",
+b5 <- iButton_temp(dataset="data/airTemp/iButton_sc2_2022.csv", sitename="Summer Camp Creek Site 2: Air Temperature (C)",
              start_date="2022-07-05", end_date="2022-11-16")#7/5/2022-11/16/2022
 
 #minidot_temp(dataset = "data/hydrology/minidot_mg1.txt", sitename = "Mahogany Creek Site 1",
 #             start_date="2022-05-12", end_date="2022-10-31")#5/12/2022-11/1/2022
-minidot_temp(dataset = "data/hydrology/minidot_mg2.txt", sitename = "Mahogany Creek Site 2: Water Temperature (C)",
-             start_date="2022-05-12", end_date="2022-10-31")#5/12/2022-11/1/2022
-minidot_temp(dataset = "data/hydrology/minidot_mg3.txt", sitename = "Mahogany Creek Site 3: Water Temperature (C)",
-             start_date="2022-05-12", end_date="2022-10-31")#5/12/2022-11/1/2022
-minidot_temp(dataset = "data/hydrology/minidot_mg4.txt", sitename = "Mahogany Creek Site 4: Water Temperature (C)",
-             start_date="2022-05-12", end_date="2022-09-07")#5/12/2022-9/7/2022
-minidot_temp(dataset = "data/hydrology/minidot_mg5.txt", sitename = "Mahogany Creek Site 5: Water Temperature (C)",
-             start_date="2022-07-05", end_date="2022-11-14")#7/5/2022-11/15/2022
-minidot_temp(dataset = "data/hydrology/minidot_sc1.txt", sitename = "Summer Camp Creek Site 1: Water Temperature (C)",
-             start_date="2022-05-12", end_date="2022-11-01")#5/12/2022-11/2/2022
-minidot_temp(dataset = "data/hydrology/minidot_sc2.txt", sitename = "Summer Camp Creek Site 2: Water Temperature (C)",
-             start_date="2022-07-05", end_date="2022-11-15")#7/5/2022-11/16/2022
+c1 <- minidot_temp(dataset = "data/hydrology/minidot_mg2.txt", sitename = "Mahogany Creek Site 2",
+             start_date="2022-05-12", end_date="2022-10-31", x_axis_lab="Date", y_axis_lab="", 
+             legend_lab="Bioenergetic Threshold \n(Dickerson & Vinyard 1999)")#5/12/2022-11/1/2022
+c2 <- minidot_temp(dataset = "data/hydrology/minidot_mg3.txt", sitename = "Mahogany Creek Site 3",
+             start_date="2022-05-12", end_date="2022-10-31", x_axis_lab="", y_axis_lab="", legend_lab="")#5/12/2022-11/1/2022
+c3 <- minidot_temp(dataset = "data/hydrology/minidot_mg4.txt", sitename = "Mahogany Creek Site 4",
+             start_date="2022-05-12", end_date="2022-09-07", x_axis_lab="", y_axis_lab="", legend_lab="")#5/12/2022-9/7/2022
+c4 <- minidot_temp(dataset = "data/hydrology/minidot_mg5.txt", sitename = "Mahogany Creek Site 5: Water Temperature (C)",
+             start_date="2022-07-05", end_date="2022-11-14", x_axis_lab="", y_axis_lab="", legend_lab="")#7/5/2022-11/15/2022
+c5 <- minidot_temp(dataset = "data/hydrology/minidot_sc1.txt", sitename = "Summer Camp Creek Site 1: Water Temperature (C)",
+             start_date="2022-05-12", end_date="2022-11-01", x_axis_lab="", y_axis_lab="", legend_lab="")#5/12/2022-11/2/2022
+c6 <- minidot_temp(dataset = "data/hydrology/minidot_sc2.txt", sitename = "Summer Camp Creek Site 2: Water Temperature (C)",
+             start_date="2022-07-05", end_date="2022-11-15", x_axis_lab="", y_axis_lab="", legend_lab="")#7/5/2022-11/16/2022
 
 #minidot_do(dataset = "data/hydrology/minidot_mg1.txt", sitename = "Mahogany Creek Site 1",
 #             start_date="2022-05-12", end_date="2022-10-31")#5/12/2022-11/1/2022
-minidot_do(dataset = "data/hydrology/minidot_mg2.txt", sitename = "Mahogany Creek Site 2: Dissolved Oxygen (mg/L)",
-             start_date="2022-05-12", end_date="2022-10-31")#5/12/2022-11/1/2022
-minidot_do(dataset = "data/hydrology/minidot_mg3.txt", sitename = "Mahogany Creek Site 3: Dissolved Oxygen (mg/L)",
-             start_date="2022-05-12", end_date="2022-10-31")#5/12/2022-11/1/2022
-minidot_do(dataset = "data/hydrology/minidot_mg4.txt", sitename = "Mahogany Creek Site 4: Dissolved Oxygen (mg/L)",
-             start_date="2022-05-12", end_date="2022-09-07")#5/12/2022-9/7/2022
-minidot_do(dataset = "data/hydrology/minidot_mg5.txt", sitename = "Mahogany Creek Site 5: Dissolved Oxygen (mg/L)",
-             start_date="2022-07-05", end_date="2022-11-14")#7/5/2022-11/15/2022
-minidot_do(dataset = "data/hydrology/minidot_sc1.txt", sitename = "Summer Camp Creek Site 1: Dissolved Oxygen (mg/L)",
-             start_date="2022-05-12", end_date="2022-11-01")#5/12/2022-11/2/2022
-minidot_do(dataset = "data/hydrology/minidot_sc2.txt", sitename = "Summer Camp Creek Site 2: Dissolved Oxygen (mg/L)",
-             start_date="2022-07-05", end_date="2022-11-15")#7/5/2022-11/16/2022
+d1 <- minidot_do(dataset = "data/hydrology/minidot_mg2.txt", sitename = "Mahogany Creek Site 2: Dissolved Oxygen (mg/L)",
+             start_date="2022-05-12", end_date="2022-10-31", x_axis_lab="", y_axis_lab="", legend_lab="")#5/12/2022-11/1/2022
+d2 <- minidot_do(dataset = "data/hydrology/minidot_mg3.txt", sitename = "Mahogany Creek Site 3: Dissolved Oxygen (mg/L)",
+             start_date="2022-05-12", end_date="2022-10-31", x_axis_lab="", y_axis_lab="", legend_lab="")#5/12/2022-11/1/2022
+d3 <- minidot_do(dataset = "data/hydrology/minidot_mg4.txt", sitename = "Mahogany Creek Site 4: Dissolved Oxygen (mg/L)",
+             start_date="2022-05-12", end_date="2022-09-07", x_axis_lab="", y_axis_lab="", legend_lab="")#5/12/2022-9/7/2022
+d4 <- minidot_do(dataset = "data/hydrology/minidot_mg5.txt", sitename = "Mahogany Creek Site 5: Dissolved Oxygen (mg/L)",
+             start_date="2022-07-05", end_date="2022-11-14", x_axis_lab="", y_axis_lab="", legend_lab="")#7/5/2022-11/15/2022
+d5 <- minidot_do(dataset = "data/hydrology/minidot_sc1.txt", sitename = "Summer Camp Creek Site 1: Dissolved Oxygen (mg/L)",
+             start_date="2022-05-12", end_date="2022-11-01", x_axis_lab="", y_axis_lab="", legend_lab="")#5/12/2022-11/2/2022
+d6 <- minidot_do(dataset = "data/hydrology/minidot_sc2.txt", sitename = "Summer Camp Creek Site 2: Dissolved Oxygen (mg/L)",
+             start_date="2022-07-05", end_date="2022-11-15", x_axis_lab="", y_axis_lab="", legend_lab="")#7/5/2022-11/16/2022
 
 
 ###Concatenate into one big fuckin graph###
+patch1 <- c3/c2/c1
+grid::grid.draw(grid::textGrob("Water Temp", x = 0.01, rot = 90))
+patch2 <- c6/c5/c4
+
+patch1 + patch2
