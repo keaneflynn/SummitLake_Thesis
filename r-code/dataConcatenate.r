@@ -4,8 +4,8 @@ library(lubridate)
 library(rgdal)
 library(terra)
 
-#setwd("~/code/SummitLake_Thesis/") #working directory for linux machine
-setwd("~/Downloads/SummitLake_Thesis") #working directory for Macbook
+setwd("~/code/SummitLake_Thesis/") #working directory for linux machine
+#setwd("~/Downloads/SummitLake_Thesis") #working directory for Macbook
 
 
 ###Fish Tracking###
@@ -40,7 +40,7 @@ fishDataframe <- fishDataframe %>%
 fishDataframe$fork_length_mm <- as.numeric(fishDataframe$fork_length_mm)
 fishDataframe$weight_g <- as.numeric(fishDataframe$weight_g) #Final fish dataset
 
-write.csv2(fishDataframe, "data/fish/fish_final.csv") #This data will now be imported into qgis to add habitat and other attributes to each fishes point
+write.csv(fishDataframe, "data/fish/fish_final.csv") #This data will now be imported into qgis to add habitat and other attributes to each fishes point
 
 
 ###Invertebrate data concatenation & manipulation###
@@ -66,7 +66,7 @@ inverts <- field_inverts %>% full_join(lab_inverts, by=c("site_id", "date")) %>%
   mutate_at(c('latitude','longitude', 'net_depth_cm', 'net_width_cm', 'velocity_fps', 'total_time'), as.numeric) %>% 
   mutate(invertMass_m3 = invert_mass_mg * 3.281 * (1/3600) * (1000/(net_depth_cm * net_width_cm)) * (1/total_time) * (1/velocity_fps)) #converts dry packet weight to drift mass per volume of water
 
-write.csv2(inverts, "data/inverts/inverts_final.csv")
+write.csv(inverts, "data/inverts/inverts_final.csv")
 
 
 ###Habitat data cleansing###
@@ -111,7 +111,37 @@ hab_import <- hab_import %>%
   select(stream, channel_type, latitude, longitude, max_depth_m, lwd_total, 
          total_shade, undercut_bank_m, dominant_substrate)
 
-write.csv2(hab_import, "data/habitat/habitat_final.csv")
-  
+write.csv(hab_import, "data/habitat/habitat_final.csv")
 
 
+###Clean up logger data###
+logger_data_formatting <- function(dataset, sitename, start_date="2021-06-09", end_date="2022-11-01"){ #Function to import hobo logger data and make it look all clean and shit
+  data <- read.delim2(dataset, skip=7, header=T, sep=",")[-1,c(3,5,6)] %>% 
+    mutate_at(c("Temperature","Dissolved.Oxygen"), as.numeric) %>% 
+    mutate(date = as.Date(Pacific.Standard.Time, "%Y-%m-%d")) %>% 
+    mutate(time_pst = format(as.POSIXct(Pacific.Standard.Time), "%H:%M:%S")) %>% 
+    mutate(site = sitename) %>% 
+    rename(temperature_c=Temperature, dissolved_oxygen_mgL=Dissolved.Oxygen) %>% 
+    group_by(date) %>% 
+    mutate(daily_mean_temp_c = mean(temperature_c),
+           daily_max_temp_c = quantile(temperature_c, 0.75),
+           daily_min_temp_c = quantile(temperature_c, 0.25)) %>% 
+    mutate(daily_mean_do_mgL = mean(dissolved_oxygen_mgL),
+           daily_max_do_mgL = quantile(dissolved_oxygen_mgL, 0.75),
+           daily_min_do_mgL = quantile(dissolved_oxygen_mgL, 0.25)) %>%  
+    select(site, date, daily_mean_temp_c, daily_mean_do_mgL) %>% #can add other variables in here
+    unique() %>% 
+    filter(date >= start_date, date <= end_date) 
+  return(data)
+}
+
+mg1 <- logger_data_formatting("data/hydrology/minidot_mg1.txt", "mg1", start_date="2021-06-09", end_date="2022-11-01")
+mg2 <- logger_data_formatting("data/hydrology/minidot_mg2.txt", "mg2", start_date="2021-06-09", end_date="2022-11-01")
+mg3 <- logger_data_formatting("data/hydrology/minidot_mg3.txt", "mg3", start_date="2021-06-09", end_date="2022-11-01")
+mg4 <- logger_data_formatting("data/hydrology/minidot_mg4.txt", "mg4", start_date="2021-06-09", end_date="2022-11-01")
+mg5 <- logger_data_formatting("data/hydrology/minidot_mg5.txt", "mg5", start_date="2021-06-09", end_date="2022-11-01")
+sc1 <- logger_data_formatting("data/hydrology/minidot_sc1.txt", "sc1", start_date="2021-06-09", end_date="2022-11-01")
+sc2 <- logger_data_formatting("data/hydrology/minidot_sc2.txt", "sc2", start_date="2021-06-09", end_date="2022-11-01")
+
+logger_final <- rbind(mg2, mg3, mg4, mg5, sc1, sc2)
+write.csv(logger_final, "data/hydrology/logger_final.csv")
