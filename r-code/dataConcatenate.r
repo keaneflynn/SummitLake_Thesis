@@ -4,8 +4,8 @@ library(lubridate)
 library(rgdal)
 library(terra)
 
-setwd("~/code/SummitLake_Thesis/") #working directory for linux machine
-#setwd("~/Downloads/SummitLake_Thesis")
+#setwd("~/code/SummitLake_Thesis/") #working directory for linux machine
+setwd("~/Downloads/SummitLake_Thesis") #working directory for Macbook
 
 
 ###Fish Tracking###
@@ -84,7 +84,34 @@ hab_import <- hab_import[,-c(3,4)] %>%
   mutate(lwd_total = sum(LWD_small, LWD_med, LWD_large, root_debris)) %>% 
   mutate_at(c("undercut_RB_m","undercut_LB_m","max_depth_m"), as.numeric) %>% 
   mutate(undercut_bank_m = sum(undercut_LB_m,undercut_RB_m))
+
+hab_import <- hab_import %>% #converting percentages of substrate to "dominant substrate type" column
+  mutate(dominant_substrate = ifelse(sand>gravel & sand>cobble & sand>boulder & sand>bedrock, "sand", 
+                              ifelse(gravel>=sand & gravel>cobble & gravel>boulder & gravel>bedrock, "gravel",
+                              ifelse(cobble>sand & cobble>gravel & cobble>boulder & cobble>bedrock, "cobble",
+                              ifelse(boulder>sand & boulder>gravel & boulder>cobble & boulder>bedrock, "boulder",
+                              ifelse(bedrock>sand & bedrock>gravel & bedrock>cobble & bedrock>boulder, "bedrock", "na"))))))
+
+
+###Habitat type aliases###
+hab_import$channel_type[grepl("SSLS",hab_import$channel_type)]<-"scour_pool" #changing from USFS habitat codes to something less cryptic
+hab_import$channel_type[grepl("FNRN",hab_import$channel_type)]<-"run"
+hab_import$channel_type[grepl("FTRF",hab_import$channel_type)]<-"riffle"
+hab_import$channel_type[grepl("SSMC",hab_import$channel_type)]<-"mid-channel"
+hab_import$channel_type[grepl("SSPL",hab_import$channel_type)]<-"plunge_pool"
+hab_import$channel_type[grepl("SDDD",hab_import$channel_type)]<-"debris_pool"
+hab_import$channel_type[grepl("FTRP",hab_import$channel_type)]<-"rapid"
+hab_import$channel_type[grepl("FTCC",hab_import$channel_type)]<-"cascade"
+hab_import$channel_type[grepl("FNSH",hab_import$channel_type)]<-"sheet"
+hab_import$channel_type[grepl("SDOT",hab_import$channel_type)]<-"debris_pool"
+
+
+hab_import <- hab_import %>%
+  unique() %>%
+  select(stream, channel_type, latitude, longitude, max_depth_m, lwd_total, 
+         total_shade, undercut_bank_m, dominant_substrate)
+
+write.csv2(hab_import, "data/habitat/habitat_final.csv")
   
-#hab_import$channel_type <- replace(hab_import$channel_type, hab_import$channel_type=="FNRN", "run") #transform data
 
 
