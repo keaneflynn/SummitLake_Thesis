@@ -145,3 +145,30 @@ sc2 <- logger_data_formatting("data/hydrology/minidot_sc2.txt", "sc2", start_dat
 
 logger_final <- rbind(mg2, mg3, mg4, mg5, sc1, sc2)
 write.csv(logger_final, "data/hydrology/logger_final.csv")
+
+
+###Clean Hobo logger data###
+test <- read.csv2("data/hydrology/hoboLogger_sc2_corrected.csv")[-1,c(3,7)]
+test$Date.Time..PST.PDT. <- parse_date_time(test$Date.Time..PST.PDT., '%m/%d/%Y %H/%M/%S')
+test <- test %>% 
+  mutate(date = as.Date(Date.Time..PST.PDT., "%m/%d/%Y")) %>% 
+  mutate(time_pst = format(as.POSIXct(Date.Time..PST.PDT.), " %H:%M:%S")) %>% 
+  mutate(water_level_cm = Water.Level....ft. * 30.48) %>% 
+  group_by(date) %>% 
+  mutate(daily_mean_level_cm = mean(water_level_cm)) %>% 
+  ungroup() %>% 
+  distinct(date, .keep_all=T) %>% 
+  select(date, daily_mean_level_cm) %>% 
+  mutate(change_since_deploy = daily_mean_level_cm - daily_mean_level_cm[1])
+  
+  
+  
+
+hobo_logger <- function(dataset, sitename, start_date, end_date){
+  data <- read.csv2(dataset)[-1,c(3,7)] %>%
+    mutate(date = as.Date(Date.Time..PSTe.PDT., "%m/%d/%Y"))
+}
+
+
+
+
