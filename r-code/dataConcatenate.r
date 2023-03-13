@@ -170,5 +170,17 @@ hobo_logger <- function(dataset, sitename, start_date, end_date){
 }
 
 
+###Import and join GIS data###
+hydroSite <- read.csv2("data/finalData/SummitSites.csv", sep=",")[,c(5:7,12)]
+hydroSite$stream <- c("Mahogany Creek", "Mahogany Creek", "Mahogany Creek", "Mahogany Creek", "Mahogany Creek",
+                      "Summer Camp Creek", "Summer Camp Creek")
+
+fishData <- read.csv2("data/finalData/SummitFish.csv", sep=",")[,c(4:13)] 
+fishData$date <- as.Date(fishData$date, "%Y/%m/%d")
+
+habitatData <- read.csv2("data/finalData/SummitHabitat.csv", sep=",")[,c(4:13)]
+habitatData <- habitatData[-231,] #filtering out erroneous data point
+
+
 
 
