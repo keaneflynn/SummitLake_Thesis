@@ -4,14 +4,13 @@ library(lubridate)
 library(rgdal)
 library(terra)
 
-setwd("~/code/SummitLake_Thesis/") #working directory for linux machine
-#setwd("~/Downloads/SummitLake_Thesis") #working directory for Macbook
+#setwd("~/code/SummitLake_Thesis/") #working directory for linux machine
+setwd("~/Downloads/SummitLake_Thesis") #working directory for Macbook
 
 
 ###Fish Tracking###
 fishTracking_2021 <- read.csv2("data/fish/fishTracking_2021.csv", sep=",")
 fishTracking_2022 <- read.csv2("data/fish/fishTracking_2022.csv", sep=",")
-
 fishTracking <- rbind(fishTracking_2021,fishTracking_2022) 
 fishTracking$date <- as.Date(fishTracking$date, "%m/%d/%Y")
 fishTracking$trip_number <- as.numeric(fishTracking$trip_number)
@@ -25,7 +24,6 @@ fishTracking$year <- year(fishTracking$date)
 ###Fish Capture###
 fishCapture_2021 <- read.csv2('data/fish/fishCapture_2021.csv', sep=",")[,c(1:6)]
 fishCapture_2022 <- read.csv2("data/fish/fishCapture_2022.csv", sep=",")[,c(1:6)]
-
 fishCapture <- rbind(fishCapture_2021,fishCapture_2022)[c(1:56),]
 fishCapture$date_tagged <- as.Date(fishCapture$date_tagged, "%m/%d/%Y")
 fishCapture$year <- year(fishCapture$date_tagged)
@@ -42,6 +40,7 @@ fishDataframe$weight_g <- as.numeric(fishDataframe$weight_g) #Final fish dataset
 
 write.csv(fishDataframe, "data/fish/fish_final.csv") #This data will now be imported into qgis to add habitat and other attributes to each fishes point
 
+rm(fishTracking_2021, fishTracking_2022, fishTracking, fishCapture_2021, fishCapture_2022, fishCapture)
 
 ###Invertebrate data concatenation & manipulation###
 field_inverts_2021 <- read.csv2("data/inverts/invertSampling_2021.csv", sep=",")
@@ -67,6 +66,8 @@ inverts <- field_inverts %>% full_join(lab_inverts, by=c("site_id", "date")) %>%
   mutate(invertMass_m3 = invert_mass_mg * 3.281 * (1/3600) * (1000/(net_depth_cm * net_width_cm)) * (1/total_time) * (1/velocity_fps)) #converts dry packet weight to drift mass per volume of water
 
 write.csv(inverts, "data/inverts/inverts_final.csv")
+
+rm(lab_inverts, field_inverts, field_inverts_2021, field_inverts_2022)
 
 
 ###Habitat data cleansing###
@@ -105,13 +106,14 @@ hab_import$channel_type[grepl("FTCC",hab_import$channel_type)]<-"cascade"
 hab_import$channel_type[grepl("FNSH",hab_import$channel_type)]<-"sheet"
 hab_import$channel_type[grepl("SDOT",hab_import$channel_type)]<-"debris_pool"
 
-
 hab_import <- hab_import %>%
   unique() %>%
   select(stream, channel_type, latitude, longitude, max_depth_m, lwd_total, 
          total_shade, undercut_bank_m, dominant_substrate)
 
 write.csv(hab_import, "data/habitat/habitat_final.csv")
+
+rm(coords_temp, coords_utm, longlat)
 
 
 ###Clean up logger data###
@@ -146,32 +148,59 @@ sc2 <- logger_data_formatting("data/hydrology/minidot_sc2.txt", "sc2", start_dat
 logger_final <- rbind(mg2, mg3, mg4, mg5, sc1, sc2)
 write.csv(logger_final, "data/hydrology/logger_final.csv")
 
+rm(mg1, mg2, mg3, mg4, mg5, sc1, sc2)
 
 ###Clean Hobo logger data###
-test <- read.csv2("data/hydrology/hoboLogger_sc2_corrected.csv")[-1,c(3,7)]
-test$Date.Time..PST.PDT. <- parse_date_time(test$Date.Time..PST.PDT., '%m/%d/%Y %H/%M/%S')
-test <- test %>% 
-  mutate(date = as.Date(Date.Time..PST.PDT., "%m/%d/%Y")) %>% 
-  mutate(time_pst = format(as.POSIXct(Date.Time..PST.PDT.), " %H:%M:%S")) %>% 
-  mutate(water_level_cm = Water.Level....ft. * 30.48) %>% 
-  group_by(date) %>% 
-  mutate(daily_mean_level_cm = mean(water_level_cm)) %>% 
-  ungroup() %>% 
-  distinct(date, .keep_all=T) %>% 
-  select(date, daily_mean_level_cm) %>% 
-  mutate(change_since_deploy = daily_mean_level_cm - daily_mean_level_cm[1])
-  
-  
-  
-
 hobo_logger <- function(dataset, sitename, start_date, end_date){
-  data <- read.csv2(dataset)[-1,c(3,7)] %>%
-    mutate(date = as.Date(Date.Time..PSTe.PDT., "%m/%d/%Y"))
+  data <- read.csv2(dataset)[-1,c(3,7)]
+  data[,1] <- parse_date_time(data[,1], '%m/%d/%Y %H/%M/%S')
+  data <- data %>% 
+    mutate(date = as.Date(Date.Time..PST.PDT., "%m/%d/%Y")) %>% 
+    mutate(time_pst = format(as.POSIXct(Date.Time..PST.PDT.), " %H:%M:%S")) %>% 
+    mutate(water_level_cm = Water.Level....ft. * 30.48) %>% 
+    group_by(date) %>% 
+    mutate(daily_mean_level_cm = mean(water_level_cm)) %>% 
+    ungroup() %>% 
+    distinct(date, .keep_all=T) %>% 
+    mutate(change_since_deploy = daily_mean_level_cm - daily_mean_level_cm[1]) %>% 
+    mutate(daily_change = daily_mean_level_cm - lag(daily_mean_level_cm, n=1)) %>% 
+    filter(date >= start_date & date <= end_date) %>% 
+    na.omit()
+  data$site <- sitename
+  data <- data %>% select(date, site, daily_mean_level_cm, change_since_deploy, daily_change)
+  return(data)
 }
 
+waterLevel_mg4 <- hobo_logger("data/hydrology/hoboLogger_mg4_corrected.csv", "mg4", "2021-05-01", "2022-11-01")
+waterLevel_mg5 <- hobo_logger("data/hydrology/hoboLogger_mg5_corrected.csv", "mg5", "2021-05-01", "2022-11-01")
+waterLevel_sc1 <- hobo_logger("data/hydrology/hoboLogger_sc1_corrected.csv", "sc1", "2021-05-01", "2022-11-01")
+waterLevel_sc2 <- hobo_logger("data/hydrology/hoboLogger_sc2_corrected.csv", "sc2", "2021-05-01", "2022-11-01")
+hoboLogger_data <- rbind(waterLevel_mg4, waterLevel_mg5, waterLevel_sc1, waterLevel_sc2)
+
+rm(waterLevel_mg4, waterLevel_mg5, waterLevel_sc1, waterLevel_sc2)
+
+
+###Clean hydrologogy datasets###
+hydro_2021 <- read.csv2("data/hydrology/hydrology_2021.csv", sep=",")
+hydro_2022 <- read.csv2("data/hydrology/hydrology_2022.csv", sep=",")
+hydrology <- rbind(hydro_2021, hydro_2022) %>% 
+  mutate(date=as.Date(date, "%m/%d/%Y")) %>% 
+  mutate(year=format(as.Date(date, "%m/%d/%Y"), "%Y")) %>% 
+  mutate_at(c("latitude", "longitude", "rct_depth_cm", "max_pool_depth_cm"), as.numeric) 
+hydrology[c(85,97,99),6] = c(5.1,8.8,10.6)
+hydrology[c(85,97,99),7] = c(19.8,24.4,22.6)
+hydrology <- hydrology %>% 
+  group_by(site_id, year) %>% 
+  mutate(rct_change_cm = rct_depth_cm - lag(rct_depth_cm, n=1)) %>% 
+  mutate(max_depth_change_cm = max_pool_depth_cm - lag(max_pool_depth_cm, n=1)) %>% 
+  ungroup() %>% 
+  select(date, site_id, rct_depth_cm, max_pool_depth_cm, rct_change_cm, max_depth_change_cm)
+
+rm(hydro_2021, hydro_2022)
+  
 
 ###Import and join GIS data###
-hydroSite <- read.csv2("data/finalData/SummitSites.csv", sep=",")[,c(5:7,12)]
+hydroSites <- read.csv2("data/finalData/SummitSites.csv", sep=",")[,c(5:7,12)]
 hydroSite$stream <- c("Mahogany Creek", "Mahogany Creek", "Mahogany Creek", "Mahogany Creek", "Mahogany Creek",
                       "Summer Camp Creek", "Summer Camp Creek")
 
@@ -180,7 +209,5 @@ fishData$date <- as.Date(fishData$date, "%Y/%m/%d")
 
 habitatData <- read.csv2("data/finalData/SummitHabitat.csv", sep=",")[,c(4:13)]
 habitatData <- habitatData[-231,] #filtering out erroneous data point
-
-
 
 
